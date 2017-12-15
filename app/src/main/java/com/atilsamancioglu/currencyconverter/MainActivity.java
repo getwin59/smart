@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void getRates() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.fixer.io/")
-                //.addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://openexchangerates.org/api/")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         RateAPI service = retrofit.create(RateAPI.class);
@@ -63,18 +62,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<RateResponse> call, Response<RateResponse> response) {
                 RateResponse jsonObject = response.body();
-
-                Log.i("Test", "yes");
-                Log.i("Test", "yes");
-
-                Log.i("Test", jsonObject.toString());
-
+                RateModel rateModel = jsonObject.getRatesObject();
+                textView.setText(rateModel.getTryValue() + " ₺");
+                textView2.setText(rateModel.getEurValue() + " €");
+                textView3.setText(rateModel.getBtcValue() + " BTC");
             }
 
             @Override
             public void onFailure(Call<RateResponse> call, Throwable t) {
                 Log.i("Test", call.request().toString());
-
             }
         });
     }
@@ -103,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(eur);
                 String chf = jsonObject1.getString("CHF");
 
-                textView.setText("USD: "+usd);
-                textView2.setText("EUR: "+eur);
-                textView3.setText("CHF: "+chf);
+                textView.setText("USD: " + usd);
+                textView2.setText("EUR: " + eur);
+                textView3.setText("CHF: " + chf);
 
 
             } catch (Exception e) {
@@ -144,9 +140,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
                 return null;
             }
-
-
-
 
 
         }

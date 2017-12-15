@@ -4,8 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/A19-CurrencyConverter-master.iml" filepath="$PROJECT_DIR$/A19-CurrencyConverter-master.iml" />
       <module fileurl="file://D:\A19-CurrencyConverter-master\CurrencyConverter.iml" filepath="D:\A19-CurrencyConverter-master\CurrencyConverter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://D:\A19-CurrencyConverter-master\app\app.iml" filepath="D:\A19-CurrencyConverter-master\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smart.iml" filepath="$PROJECT_DIR$/smart.iml" />
     </modules>
   </component>
 </project>

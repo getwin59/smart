@@ -1,16 +1,13 @@
 package com.atilsamancioglu.currencyconverter;
 
-import org.json.JSONObject;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 /**
  * Created by Eray on 15.12.2017.
  */
 
 public interface RateAPI {
-    @GET("latest")
+    @GET("latest.json?app_id=28146f4b30f54e368f026c22c9e45316")
     Call<RateResponse> getRates();
 }
